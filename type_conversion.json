@@ -1,0 +1,14 @@
+[
+  {
+    "bool()": "BOOLEAN",
+    "bytes()": "BINARY",
+    "datetime.date(2000,1,1)": "DATE",
+    "datetime.datetime(2000,1,1)": "DATETIME",
+    "decimal.Decimal()": "NUMBER(38,19)",
+    "float()": "FLOAT",
+    "int()": "INTEGER",
+    "str()": "STRING",
+    "datetime.time()": "TIME",
+    "uuid.uuid4()": "STRING"
+  }
+]
