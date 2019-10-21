@@ -1,0 +1,48 @@
+[
+    {
+        "<INSERT A UNIQUE JOB NAME A>": {
+            "extract": {
+                "server": "${PYODBC_SERVER}",
+                "query": "select * from <INSERT SOURCE DATABASE HERE>.<INSERT SOURCE SCHEMA HERE>.<INSERT SOURCE TABLE HERE>"
+            },
+            "load": {
+                "database": "${SNOWFLAKE_DATABASE}",
+                "schema": "<INSERT TARGET SCHEMA HERE>",
+                "table": "<INSERT TARGET TABLE HERE>"
+            }
+        },
+        "<INSERT A UNIQUE JOB NAME B>": {
+            "extract": {
+                "server": "${PYODBC_SERVER}",
+                "query": "select * from <INSERT SOURCE DATABASE HERE>.<INSERT SOURCE SCHEMA HERE>.<INSERT SOURCE TABLE HERE>"
+            },
+            "load": {
+                "database": "${SNOWFLAKE_DATABASE}",
+                "schema": "<INSERT TARGET SCHEMA HERE>",
+                "table": "<INSERT TARGET TABLE HERE>"
+            }
+        },
+        "<INSERT A UNIQUE JOB NAME ...>": {
+            "extract": {
+                "server": "${PYODBC_SERVER}",
+                "query": "select * from <INSERT SOURCE DATABASE HERE>.<INSERT SOURCE SCHEMA HERE>.<INSERT SOURCE TABLE HERE>"
+            },
+            "load": {
+                "database": "${SNOWFLAKE_DATABASE}",
+                "schema": "<INSERT TARGET SCHEMA HERE>",
+                "table": "<INSERT TARGET TABLE HERE>"
+            }
+        },
+        "<INSERT A UNIQUE JOB NAME Z>": {
+            "extract": {
+                "server": "${PYODBC_SERVER}",
+                "query": "select * from <INSERT SOURCE DATABASE HERE>.<INSERT SOURCE SCHEMA HERE>.<INSERT SOURCE TABLE HERE>"
+            },
+            "load": {
+                "database": "${SNOWFLAKE_DATABASE}",
+                "schema": "<INSERT TARGET SCHEMA HERE>",
+                "table": "<INSERT TARGET TABLE HERE>"
+            }
+        }
+    }
+]
