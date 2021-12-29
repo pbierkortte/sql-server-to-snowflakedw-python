@@ -3,7 +3,7 @@ import csv,datetime,decimal,json,gzip,os,pyodbc,shutil,string,tempfile,uuid
 import snowflake.connector as sf
 import multiprocessing
 #####################################################################
-##  Prejob
+##  Pre-job
 ##    1) load job file
 ##      a) Load the file
 ##      b) Replace environment variables ${something} style
@@ -27,7 +27,7 @@ def write_data(chunk):
         csv_writer.writerows(rows)
 
 if __name__  == '__main__':
-    # credentials needed for inital testing
+    # Credentials
     os.environ['PYODBC_DRIVER']    =   '{ODBC Driver 13 for SQL Server}'
     os.environ['PYODBC_SERVER']    =   '<INSERT SQL SERVER NAME HERE>'
     os.environ['PYODBC_TRUSTED_CONNECTION']    = 'yes'                  
