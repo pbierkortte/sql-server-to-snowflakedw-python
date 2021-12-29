@@ -68,19 +68,19 @@ with open('job_list.json') as table_list_file:
 ##     ...repeat for each job
 #####################################################################
 def write_data(chunk):
-    path = os.path.join(chunk[0], '')
-    job_name = chunk[1]
-    header = chunk[2]
-    rows = chunk[3]
+    new_path = os.path.join(chunk[0], '')
+    new_job_name = chunk[1]
+    new_header = chunk[2]
+    new_rows = chunk[3]
     num = multiprocessing.current_process().name[16:]
-    filename = f'{path}{job_name}.{num}.csv.gz'
+    filename = f'{new_path}{new_job_name}.{num}.csv.gz'
     if os.path.exists(filename) is False:
         with gzip.open(filename, 'at', encoding='utf-8', newline='') as f:
             csv_writer = csv.writer(f, quoting=csv.QUOTE_NONNUMERIC)
-            csv_writer.writerows(header)
+            csv_writer.writerows(new_header)
     with gzip.open(filename, 'at', encoding='utf-8', newline='') as f:
         csv_writer = csv.writer(f, quoting=csv.QUOTE_NONNUMERIC)
-        csv_writer.writerows(rows)
+        csv_writer.writerows(new_rows)
 
 
 # 1
