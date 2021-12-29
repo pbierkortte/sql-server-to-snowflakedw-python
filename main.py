@@ -4,11 +4,71 @@ import snowflake.connector as sf
 import multiprocessing
 #####################################################################
 ##  Pre-job
-##    1) load job file
+##    1) Validate connections
+##    2) Load job file
 ##      a) Load the file
 ##      b) Replace environment variables ${something} style
 ##      c) Convert to dict
-##    2) validate connections
+#####################################################################
+#1
+# Test environment variables
+try:
+    PYODBC_DRIVER = os.environ['PYODBC_DRIVER']
+    PYODBC_SERVER = os.environ['PYODBC_SERVER']
+    PYODBC_TRUSTED_CONNECTION = os.environ[
+        'PYODBC_TRUSTED_CONNECTION']  # set to yes, if using AD Auth / Trusted Connection
+    if PYODBC_TRUSTED_CONNECTION != "yes":
+        PYODBC_UID = os.environ['PYODBC_UID']
+        PYODBC_PWD = os.environ['PYODBC_PWD']
+    SNOWFLAKE_ACCOUNT = os.environ['SNOWFLAKE_ACCOUNT']
+    SNOWFLAKE_USER = os.environ['SNOWFLAKE_USER']
+    SNOWFLAKE_PASSWORD = os.environ['SNOWFLAKE_PASSWORD']
+    SNOWFLAKE_DATABASE = os.environ['SNOWFLAKE_DATABASE']
+except:
+    raise Exception("Error: Environment Variables Not Set Correctly")
+
+# Test odbc connection
+try:
+    odbc_dict = {x[7:]: os.environ[x] for x in os.environ if x.startswith('PYODBC_')}
+    odbc_connection_string = ';'.join('{}={}'.format(k, v) for k, v in odbc_dict.items())
+    with pyodbc.connect(odbc_connection_string).cursor() as odbc_cursor:
+        odbc_cursor.execute("select 'PYODBC connection okay' as test")
+        print(odbc_cursor.fetchone()[0])
+except:
+    raise Exception("Error: PYODBC connection failed")
+
+# Test snowflake connection
+try:
+    sf_dict = {x[10:].lower(): os.environ[x] for x in os.environ if x.startswith('SNOWFLAKE_')}
+    with sf.connect(**sf_dict).cursor() as sf_cursor:
+        sf_cursor.execute("select 'Snowflake connection okay' as test")
+        print(sf_cursor.fetchone()[0])
+except:
+    raise Exception("Error: Snowflake connection failed")
+
+# 2
+# load job file
+with open('job_list.json') as table_list_file:
+    table_list_raw \
+        = table_list_file.read()
+    table_list_template \
+        = string.Template(table_list_raw)
+    job_list_json \
+        = table_list_template.substitute({x: os.environ[x] for x in os.environ})
+    job_list \
+        = json.loads(job_list_json)[0]
+
+
+#####################################################################
+##  Extract
+##    1) read source data definition, save for later
+##    2) Create temp folder
+##    3) Data
+##        a) write header
+##        b) Read
+##        c) serialize
+##        d) compress
+##     ...repeat for each job
 #####################################################################
 def write_data(chunk):
     path = os.path.join(chunk[0],'')
@@ -26,79 +86,8 @@ def write_data(chunk):
         csv_writer = csv.writer(f,quoting=csv.QUOTE_NONNUMERIC)
         csv_writer.writerows(rows)
 
-if __name__  == '__main__':
-    # Credentials
-    os.environ['PYODBC_DRIVER']    =   '{ODBC Driver 17 for SQL Server}'    # Adjust the driver version to match your version
-    os.environ['PYODBC_SERVER']    =   '<INSERT SQL SERVER NAME HERE>'
-    os.environ['PYODBC_TRUSTED_CONNECTION']    = 'yes'                  
-        # set to no, if not using AD Auth / Trusted Connection
-    os.environ['SNOWFLAKE_ACCOUNT']     =   '<INSERT FULL ACCOUNT NAME HERE>'     
-        # examples: xy12345.us-east-1, xy12345.canada-central.azure
-    os.environ['SNOWFLAKE_USER']        =   '<INSERT SNOWFLAKE USER NAME HERE>'
-        # Leave blank for AD Auth / Trusted Connection
-    os.environ['SNOWFLAKE_PASSWORD']    =   '<INSERT SNOWFLAKE PASSWORD NAME HERE>'                          
-    os.environ['SNOWFLAKE_DATABASE']    =   '<INSERT TARGET DATABASE NAME HERE>'
-
-    if      os.environ.get('PYODBC_DRIVER') is not None                 \
-        and  os.environ.get('PYODBC_SERVER') is not None                \
-        and (    os.environ.get('PYODBC_TRUSTED_CONNECTION') == 'yes'   \
-              or (      os.environ.get('PYODBC_UID') is not None        \
-                   and  os.environ.get('PYODBC_PWD') is not None        \
-                  )                                                     \
-            )                                                           \
-        and  os.environ.get('SNOWFLAKE_ACCOUNT') is not None            \
-        and  os.environ.get('SNOWFLAKE_USER') is not None               \
-        and  os.environ.get('SNOWFLAKE_PASSWORD') is not None           \
-        and  os.environ.get('SNOWFLAKE_DATABASE') is not None           \
-            :pass
-    else:
-        print('Environment Variables Not Set')
-        raise SystemExit
-
-    with open('job_list.json') as table_list_file:
-        table_list_raw \
-            =   table_list_file.read()
-        table_list_template \
-            =   string.Template(table_list_raw)
-        job_list_json \
-            =   table_list_template.substitute(
-                    {x : os.environ[x] for x in os.environ})
-        job_list \
-            =   json.loads(job_list_json)[0]
-     #2 test odbc connection
-    odbc_dict = {x[7:]:os.environ[x]
-                for x in os.environ
-                    if x.startswith('PYODBC_')}
-    odbc_connection_string \
-        = ';'.join('{}={}'.format(k, v) for k, v in odbc_dict.items())
-
-    odbc_cursor = pyodbc.connect(odbc_connection_string).cursor()
-    odbc_cursor.execute("select 'PYODBC connection okay' as test")
-    print(odbc_cursor.fetchone()[0])
-    odbc_cursor.close()
-
-    # test snowflake connection
-    sf_dict = {x[10:].lower():os.environ[x]
-                for x in os.environ
-                    if x.startswith('SNOWFLAKE_')}
-    sf_cursor = sf.connect(**sf_dict).cursor()
-    sf_cursor.execute("select 'Snowflake connection okay' as test")
-    print(sf_cursor.fetchone()[0])
-    sf_cursor.close()
-    #print()
-
-#####################################################################
-##  Extract
-##    1) read source data definition, save for later
-##    2) Create temp folder
-##    3) Data
-##        a) write header
-##        b) Read
-##        c) serialize
-##        d) compress
-##     ...repeat for each job
-#####################################################################
-    #1
+#1
+if __name__ == '__main__':
     src_def = {}
     for job in job_list.keys():
         src_qry = job_list[job]['extract']['query']
