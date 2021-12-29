@@ -28,7 +28,7 @@ def write_data(chunk):
 
 if __name__  == '__main__':
     # Credentials
-    os.environ['PYODBC_DRIVER']    =   '{ODBC Driver 13 for SQL Server}'
+    os.environ['PYODBC_DRIVER']    =   '{ODBC Driver 17 for SQL Server}'    # Adjust the driver version to match your version
     os.environ['PYODBC_SERVER']    =   '<INSERT SQL SERVER NAME HERE>'
     os.environ['PYODBC_TRUSTED_CONNECTION']    = 'yes'                  
         # set to no, if not using AD Auth / Trusted Connection
