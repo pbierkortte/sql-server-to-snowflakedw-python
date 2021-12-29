@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-import csv, datetime, decimal, json, gzip, os, pyodbc, shutil, string, tempfile, uuid
+import csv, gzip, json, multiprocessing, os, pyodbc, string, tempfile
+import uuid, datetime, decimal # Needed for eval()
 import snowflake.connector as sf
-import multiprocessing
 
 #####################################################################
 ##  Pre-job
