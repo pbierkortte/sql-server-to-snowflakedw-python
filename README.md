@@ -127,7 +127,7 @@ PYODBC returns typed data. This file maps that type to the Snowflake type.
 
 
 ## Execute
-Run the following commands from the terminal:
+Run the following:
 ```bash
 python3 main.py
 ```
