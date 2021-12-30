@@ -4,7 +4,7 @@
 ### **⛁ SQL Server ➔ 🐍 Python ➔ ❄️ Snowflake**
 
 
-
+## Purpose
 Migrate data from SQL Server into Snowflake using Python.
 
 ## Assumptions
