@@ -5,7 +5,7 @@
 
 
 
-Migrate data from SQL Server into Snowflake using python.
+Migrate data from SQL Server into Snowflake using Python.
 
 ## Assumptions
 * You have some knowledge of
