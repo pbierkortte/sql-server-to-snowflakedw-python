@@ -104,16 +104,16 @@ pip install -r requirements.txt
 
 ## Configuration
 
-### Job list [job_list.json](job_list.json)
+### [Job List](job_list.json)
 List of source tables (SELECT * FROM MY_TABLE) and the target tables you want to create. Replace the <INSERT .. HERE> placeholders.  
 
  
-### Type Conversion [type_conversion.json](type_conversion.json)
+### [Type Conversion](type_conversion.json)
 PYODBC returns typed data. This file maps the Python type to the Snowflake type. 
 
 
 ## Execute
-1. Run the following commands from the terminal
+Run the following commands from the terminal:
 ```bash
 python3 main.py
 ```
