@@ -14,7 +14,7 @@ Migrate data from SQL Server into Snowflake using Python.
   * Python
   * Snowflake
   * Linux/macOS
-  * Your computer runs Linux/macOS
+* Your computer runs Linux/macOS
 * You have enough free disk space
   * Source data temporarily compressed and saved locally
   * Expect ~20% of the source size to be needed
