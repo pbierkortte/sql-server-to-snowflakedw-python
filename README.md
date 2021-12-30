@@ -105,7 +105,7 @@ pip install -r requirements.txt
 ## Configuration
 
 ### [Job List](job_list.json)
-List of source tables (SELECT * FROM MY_TABLE) and the target tables you want to create. Replace the <INSERT .. HERE> placeholders.  
+List of select statements (SELECT * FROM MY_TABLE) and the target tables you want to create. Replace the <INSERT .. HERE> placeholders. Columns or rows can be excluded via the query.
 
  
 ### [Type Conversion](type_conversion.json)
