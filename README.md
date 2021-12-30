@@ -23,21 +23,27 @@ python3 --version
 * Snowflake Connector for Python
 * others<sup>1</sup>
 
+
 ## Setup
 Run the following commands from the terminal
 ### Create a virtual environment 
 ```bash
 python3 -m venv venv
 ```
+
+
 ### Activate the virtual environment
 ```bash
 source venv/bin/activate
 ```
 
+
 ### Install the Microsoft ODBC driver for SQL Server (Linux)
+
 
 #### Ubuntu
 Begin by running the following:
+
 
 ```bash
 sudo su
@@ -65,6 +71,7 @@ sudo apt-get update
 sudo ACCEPT_EULA=Y apt-get install -y msodbcsql17
 ```
 
+
 #### macOS
 To install Microsoft ODBC driver 17 for SQL Server on macOS, run the following commands:
 ```bash
@@ -74,11 +81,13 @@ brew update
 HOMEBREW_NO_ENV_FILTERING=1 ACCEPT_EULA=Y brew install msodbcsql17 mssql-tools
 ```
 
+
 ### Install the Snowflake Connector
 To install the connector, run the following command:
 ```bash
 pip install snowflake-connector-python
 ```
+
 
 ### Install the Python requirements
 To install the Python libraries, run the following command:
@@ -88,6 +97,7 @@ pip install -r requirements.txt
 
 
 ## Configuration
+
 
 ### Environment Variables
 Replace < ... > with your config, and run the following:
@@ -104,10 +114,11 @@ export SNOWFLAKE_PASSWORD=<YOUR CONFIG HERE>
 export SNOWFLAKE_DATABASE=<YOUR CONFIG HERE>
 ```
 
+
 ### [Job List](job_list.json)
 List of select statements (SELECT * FROM MY_TABLE) and the target tables you want to create. Replace the < ... > placeholders. To allow for multiple SQL Servers instances and Snowflake databases simply replace "${PYODBC_SERVER}" and "${SNOWFLAKE_DATABASE}" placeholders with the server names and database names respectively. Also, columns or rows can be excluded via the query, and essentially any SELECT query can be used as a source. 
 
- 
+
 ### [Type Conversion](type_conversion.json)
 PYODBC returns typed data. This file maps that type to the Snowflake type. 
 
