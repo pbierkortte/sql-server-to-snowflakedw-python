@@ -74,12 +74,11 @@ def write_data(chunk):
     new_rows = chunk[3]
     num = multiprocessing.current_process().name[16:]
     filename = f'{new_path}{new_job_name}.{num}.csv.gz'
-    if os.path.exists(filename) is False:
-        with gzip.open(filename, 'at', encoding='utf-8', newline='') as f:
-            csv_writer = csv.writer(f, quoting=csv.QUOTE_NONNUMERIC)
-            csv_writer.writerows(new_header)
-    with gzip.open(filename, 'at', encoding='utf-8', newline='') as f:
+    header_needed = not os.path.exists(filename)
+    with gzip.open(filename, 'at', encoding='utf-8', newline='') as f:      
         csv_writer = csv.writer(f, quoting=csv.QUOTE_NONNUMERIC)
+        if header_needed:
+            csv_writer.writerows(new_header)
         csv_writer.writerows(new_rows)
 
 
