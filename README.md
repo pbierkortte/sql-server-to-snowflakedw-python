@@ -13,7 +13,7 @@ Migrate data from SQL Server into Snowflake.
     * Visit [this page]([https://signup.snowflake.com/) to sign up 
 * You have python v3.8+ installed
   * To check run the following, and verify
-```commandline
+```bash
 python3 --version
 ```
 
@@ -25,19 +25,19 @@ python3 --version
 ## Setup
 Run the following commands from the terminal
 ### Create a virtual environment 
-```commandline
+```bash
 python3 -m venv venv
 ```
 ### Activate the virtual environment
-```commandline
+```bash
 source venv/bin/activate
 ```
 ### Install required packages
-```commandline
+```bash
 pip install -r requirements.txt
 ```
 ### Set environment variable(s) 
-```commandline
+```bash
 export PYODBC_DRIVER=<Variabel Here>
 export PYODBC_SERVER=<Variabel Here>
 export PYODBC_TRUSTED_CONNECTION=<Variabel Here> #Either "yes" or "no" (without the Quotation marks)
@@ -57,10 +57,9 @@ Begin by running the following:
 ```bash
 sudo su
 curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
-
 ```
 
-Download appropriate package for the OS version
+Download the appropriate package for the OS version
 Choose only ONE of the following, corresponding to your OS version
 
 ```bash
@@ -97,11 +96,21 @@ pip install snowflake-connector-python
 ```
 
 
-### Install the Python requirments
+### Install the Python requirements
 To install the Python libraries, run the following command:
 ```bash
 pip install -r requirements.txt
 ```
+
+## Configuration
+
+### Job list [job_list.json](job_list.json)
+List of source tables (SELECT * FROM MY_TABLE) and the target tables you want to create. Replace the <INSERT .. HERE> placeholders.  
+
+ 
+### Type Conversion [type_conversion.json](type_conversion.json)
+PYODBC returns typed data. This file maps the Python type to the Snowflake type. 
+
 
 ## Execute
 1. Run the following commands from the terminal
