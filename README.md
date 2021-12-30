@@ -19,7 +19,7 @@ Migrate data from SQL Server into Snowflake using Python.
   * Source data will be temporarily saved locally
   * Stored data is compressed, and storage required will vary
   * Expect ~20% of the source size to be needed. 
-  * For example, Space Needed = (database GiB - index GiB) * 20%
+  * For example, Space Needed = (Database GiB - Index GiB) * 20%
 * You have a Snowflake account
   * Sign up for a Snowflake account if you do not already have one
   * Visit [this page](https://signup.snowflake.com) to sign up 
