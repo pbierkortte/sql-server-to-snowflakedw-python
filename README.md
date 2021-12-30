@@ -143,7 +143,6 @@ python3 main.py
 ```
 
 
-## Footnotes
 [^1]: The full list can be found in the [requirements file](requirements.txt)
 
 
