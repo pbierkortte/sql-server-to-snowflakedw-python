@@ -55,9 +55,9 @@ export SNOWFLAKE_PASSWORD=<Variabel Here>
 export SNOWFLAKE_DATABASE=<Variabel Here>
 ```
 
-## Install the Microsoft ODBC driver for SQL Server (Linux)
+### Install the Microsoft ODBC driver for SQL Server (Linux)
 
-### <a id="ubuntu17"></a> Ubuntu
+#### <a id="ubuntu17"></a> Ubuntu
 Begin by running the following:
 
 ```bash
@@ -87,14 +87,23 @@ sudo apt-get update
 sudo ACCEPT_EULA=Y apt-get install -y msodbcsql17
 ```
 
-## Install the Snowflake Connector
+#### macOS
+To install Microsoft ODBC driver 17 for SQL Server on macOS, run the following commands:
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+brew tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release
+brew update
+HOMEBREW_NO_ENV_FILTERING=1 ACCEPT_EULA=Y brew install msodbcsql17 mssql-tools
+```
+
+### Install the Snowflake Connector
 To install the connector, run the following command:
 ```bash
 pip install snowflake-connector-python
 ```
 
 
-## Install the Python requirments
+### Install the Python requirments
 To install the Python libraries, run the following command:
 ```bash
 pip install -r requirements.txt
@@ -102,7 +111,11 @@ pip install -r requirements.txt
 
 ---
 
-### Footnotes
+
+
+---
+
+## Footnotes
 1. Full list can be found in the [requirements.txt](requirements.txt) file
 
 
