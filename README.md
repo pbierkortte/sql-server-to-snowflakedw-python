@@ -1,6 +1,6 @@
 # SQL Server to Snowflake DWH Data Migration
-
 Migrate data from SQL Server into Snowflake using python.
+
 
 ## Assumptions
 * You have some knowledge of
@@ -16,6 +16,7 @@ Migrate data from SQL Server into Snowflake using python.
 ```bash
 python3 --version
 ```
+
 
 ## Dependencies
 * Microsoft ODBC driver for SQL server
@@ -89,18 +90,18 @@ pip install -r requirements.txt
 ## Configuration
 
 ### Environment Variables
-Replace < ... > with your credentials, and run the following:
+Replace < ... > with your config, and run the following:
 
 ```bash
-export PYODBC_DRIVER=<Variable Here>
-export PYODBC_SERVER=<Variable Here>
-export PYODBC_TRUSTED_CONNECTION=<Variable Here> #Either "yes" or "no" (without the Quotation marks)
-export PYODBC_UID=<Variable Here> #Required if PYODBC_TRUSTED_CONNECTION is no
-export PYODBC_PWD=<Variable Here> #Required if PYODBC_TRUSTED_CONNECTION is no
-export SNOWFLAKE_ACCOUNT=<Variable Here>
-export SNOWFLAKE_USER=<Variable Here>
-export SNOWFLAKE_PASSWORD=<Variable Here>
-export SNOWFLAKE_DATABASE=<Variable Here>
+export PYODBC_DRIVER=<YOUR CONFIG HERE>
+export PYODBC_SERVER=<YOUR CONFIG HERE>
+export PYODBC_TRUSTED_CONNECTION=<YOUR CONFIG HERE>  #Either "yes" or "no" (without the quotation marks)
+export PYODBC_UID=<YOUR CONFIG HERE>  #Required if PYODBC_TRUSTED_CONNECTION is no
+export PYODBC_PWD=<<YOUR CONFIG HERE>  #Required if PYODBC_TRUSTED_CONNECTION is no
+export SNOWFLAKE_ACCOUNT=<YOUR CONFIG HERE>
+export SNOWFLAKE_USER=<YOUR CONFIG HERE>
+export SNOWFLAKE_PASSWORD=<YOUR CONFIG HERE>
+export SNOWFLAKE_DATABASE=<YOUR CONFIG HERE>
 ```
 
 ### [Job List](job_list.json)
