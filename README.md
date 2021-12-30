@@ -116,7 +116,7 @@ export SNOWFLAKE_DATABASE=<YOUR CONFIG HERE>
 
 
 ### [Job List](job_list.json)
-List of source tables and the target tables you want to create. Essentially any SELECT query can be used as the source allowing columns or rows can be excluded or adjusted. To allow for multiple SQL Servers instances and many Snowflake databases simply replace the ${PYODBC_SERVER} and ${SNOWFLAKE_DATABASE} placeholders with the servers and databases.  
+List of source tables and the target tables you want to create. Essentially any SELECT query can be used as the source allowing columns or rows can be excluded or adjusted. To allow for multiple SQL Server instances and/or many Snowflake databases simply replace the ${PYODBC_SERVER} and ${SNOWFLAKE_DATABASE} placeholders with the servers and databases.  
 
 Replace the < ... > placeholders. 
 
