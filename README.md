@@ -1,7 +1,5 @@
+# ⛁ SQL Server ➔ 🐍 Python ➔ ❄️ Snowflake
 
-
-# SQL Server to Snowflake DWH Data Migration
-### **⛁ SQL Server ➔ 🐍 Python ➔ ❄️ Snowflake**
 
 
 ## Purpose
@@ -33,7 +31,7 @@ python3 --version
 ## Dependencies
 * Microsoft ODBC driver for SQL server
 * Snowflake Connector for Python
-* Others<sup>1</sup>
+* Others[^1]
 
 
 ## Setup
@@ -146,7 +144,7 @@ python3 main.py
 
 
 ## Footnotes
-1. The full list can be found in the [requirements.txt](requirements.txt) file
+[^1]: The full list can be found in the [requirements file](requirements.txt)
 
 
 <img src="https://us-central1-trackgit-analytics.cloudfunctions.net/token/ping/kwna4gs9gbwxovaj5zjk" height="1" width="1"/>
