@@ -88,17 +88,19 @@ pip install -r requirements.txt
 
 ## Configuration
 
-#### Set environment variable(s) 
+### Environment Variables
+Replace < ... > with your credentials, and run the following
+
 ```bash
-export PYODBC_DRIVER=<Variabel Here>
-export PYODBC_SERVER=<Variabel Here>
-export PYODBC_TRUSTED_CONNECTION=<Variabel Here> #Either "yes" or "no" (without the Quotation marks)
-export PYODBC_UID=<Variabel Here> #Required if PYODBC_TRUSTED_CONNECTION is no
-export PYODBC_PWD=<Variabel Here> #Required if PYODBC_TRUSTED_CONNECTION is no
-export SNOWFLAKE_ACCOUNT=<Variabel Here>
-export SNOWFLAKE_USER=<Variabel Here>
-export SNOWFLAKE_PASSWORD=<Variabel Here>
-export SNOWFLAKE_DATABASE=<Variabel Here>
+export PYODBC_DRIVER=<Variable Here>
+export PYODBC_SERVER=<Variable Here>
+export PYODBC_TRUSTED_CONNECTION=<Variable Here> #Either "yes" or "no" (without the Quotation marks)
+export PYODBC_UID=<Variable Here> #Required if PYODBC_TRUSTED_CONNECTION is no
+export PYODBC_PWD=<Variable Here> #Required if PYODBC_TRUSTED_CONNECTION is no
+export SNOWFLAKE_ACCOUNT=<Variable Here>
+export SNOWFLAKE_USER=<Variable Here>
+export SNOWFLAKE_PASSWORD=<Variable Here>
+export SNOWFLAKE_DATABASE=<Variable Here>
 ```
 
 ### [Job List](job_list.json)
