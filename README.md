@@ -89,7 +89,7 @@ pip install -r requirements.txt
 ## Configuration
 
 ### Environment Variables
-Replace < ... > with your credentials, and run the following
+Replace < ... > with your credentials, and run the following:
 
 ```bash
 export PYODBC_DRIVER=<Variable Here>
