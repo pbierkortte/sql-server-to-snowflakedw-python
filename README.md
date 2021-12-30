@@ -1,10 +1,9 @@
-# sql-server-to-snowflakedw-python
-## Import SQL Server data to Snowflake Data Warehouse with Python
-
----
+# Import SQL Server data to Snowflake Data Warehouse with Python
 
 
-### Assumptions:
+
+
+## Assumptions:
 * You have some knowledge of
   * Python
   * Linux/macOS
@@ -19,30 +18,26 @@
 python3 --version
 ```
 
----
-
-### Dependencies
+## Dependencies
 * Microsoft ODBC driver for SQL server
 * Snowflake Connector for Python
 * others<sup>1</sup>
 
----
-
-### Setup
+## Setup
 Run the following commands from the terminal
-#### Create a virtual environment 
+### Create a virtual environment 
 ```commandline
 python3 -m venv venv
 ```
-#### Activate the virtual environment
+### Activate the virtual environment
 ```commandline
 source venv/bin/activate
 ```
-#### Install required packages
+### Install required packages
 ```commandline
 pip install -r requirements.txt
 ```
-#### Set environment variable(s) 
+### Set environment variable(s) 
 ```commandline
 export PYODBC_DRIVER=<Variabel Here>
 export PYODBC_SERVER=<Variabel Here>
@@ -57,7 +52,7 @@ export SNOWFLAKE_DATABASE=<Variabel Here>
 
 ### Install the Microsoft ODBC driver for SQL Server (Linux)
 
-#### <a id="ubuntu17"></a> Ubuntu
+#### Ubuntu
 Begin by running the following:
 
 ```bash
@@ -109,11 +104,12 @@ To install the Python libraries, run the following command:
 pip install -r requirements.txt
 ```
 
----
+## Execute
+1. Run the following commands from the terminal
+```bash
+python3 main.py
+```
 
-
-
----
 
 ## Footnotes
 1. Full list can be found in the [requirements.txt](requirements.txt) file
