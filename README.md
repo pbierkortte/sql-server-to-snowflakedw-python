@@ -131,7 +131,7 @@ python3 main.py
 
 
 ## Footnotes
-1. Full list can be found in the [requirements.txt](requirements.txt) file
+1. The full list can be found in the [requirements.txt](requirements.txt) file
 
 
 <img src="https://us-central1-trackgit-analytics.cloudfunctions.net/token/ping/kwna4gs9gbwxovaj5zjk" height="1" width="1"/>
