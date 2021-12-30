@@ -105,11 +105,11 @@ pip install -r requirements.txt
 ## Configuration
 
 ### [Job List](job_list.json)
-List of select statements (SELECT * FROM MY_TABLE) and the target tables you want to create. Replace the <INSERT .. HERE> placeholders. Columns or rows can be excluded via the query.
+List of select statements (SELECT * FROM MY_TABLE) and the target tables you want to create. Replace the < ... > placeholders. To allow for multiple SQL Servers instances and Snowflake databases simply replace "${PYODBC_SERVER}" and "${SNOWFLAKE_DATABASE}" placeholders with the server names and database names respectively. Also, columns or rows can be excluded via the query, and essentially any SELECT query can be used as a source. 
 
  
 ### [Type Conversion](type_conversion.json)
-PYODBC returns typed data. This file maps the Python type to the Snowflake type. 
+PYODBC returns typed data. This file maps that type to the Snowflake type. 
 
 
 ## Execute
