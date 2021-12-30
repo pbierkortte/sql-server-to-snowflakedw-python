@@ -1,6 +1,11 @@
-# SQL Server to Snowflake DWH Data Migration
-Migrate data from SQL Server into Snowflake using python.
 
+
+# SQL Server to Snowflake DWH Data Migration
+### **⛁ SQL Server ➔ 🐍 Python ➔ ❄️ Snowflake**
+
+
+
+Migrate data from SQL Server into Snowflake using python.
 
 ## Assumptions
 * You have some knowledge of
