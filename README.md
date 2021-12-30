@@ -35,7 +35,7 @@ python3 --version
 
 
 ## Setup
-Run the following commands from the terminal
+Run the following commands from the terminal:
 ### Create a virtual environment 
 ```bash
 python3 -m venv venv
