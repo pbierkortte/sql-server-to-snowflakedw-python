@@ -10,7 +10,7 @@ Migrate data from SQL Server into Snowflake using python.
 * Your computer is connected to the internet
 * You have a Snowflake account
     * Sign up for a Snowflake account if you do not already have one
-    * Visit [this page]([https://signup.snowflake.com/) to sign up 
+    * Visit [this page](https://signup.snowflake.com) to sign up 
 * You have python v3.8+ installed
   * To check run the following, and verify
 ```bash
