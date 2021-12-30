@@ -32,22 +32,6 @@ python3 -m venv venv
 ```bash
 source venv/bin/activate
 ```
-### Install required packages
-```bash
-pip install -r requirements.txt
-```
-### Set environment variable(s) 
-```bash
-export PYODBC_DRIVER=<Variabel Here>
-export PYODBC_SERVER=<Variabel Here>
-export PYODBC_TRUSTED_CONNECTION=<Variabel Here> #Either "yes" or "no" (without the Quotation marks)
-export PYODBC_UID=<Variabel Here> #Required if PYODBC_TRUSTED_CONNECTION is no
-export PYODBC_PWD=<Variabel Here> #Required if PYODBC_TRUSTED_CONNECTION is no
-export SNOWFLAKE_ACCOUNT=<Variabel Here>
-export SNOWFLAKE_USER=<Variabel Here>
-export SNOWFLAKE_PASSWORD=<Variabel Here>
-export SNOWFLAKE_DATABASE=<Variabel Here>
-```
 
 ### Install the Microsoft ODBC driver for SQL Server (Linux)
 
@@ -95,14 +79,27 @@ To install the connector, run the following command:
 pip install snowflake-connector-python
 ```
 
-
 ### Install the Python requirements
 To install the Python libraries, run the following command:
 ```bash
 pip install -r requirements.txt
 ```
 
+
 ## Configuration
+
+#### Set environment variable(s) 
+```bash
+export PYODBC_DRIVER=<Variabel Here>
+export PYODBC_SERVER=<Variabel Here>
+export PYODBC_TRUSTED_CONNECTION=<Variabel Here> #Either "yes" or "no" (without the Quotation marks)
+export PYODBC_UID=<Variabel Here> #Required if PYODBC_TRUSTED_CONNECTION is no
+export PYODBC_PWD=<Variabel Here> #Required if PYODBC_TRUSTED_CONNECTION is no
+export SNOWFLAKE_ACCOUNT=<Variabel Here>
+export SNOWFLAKE_USER=<Variabel Here>
+export SNOWFLAKE_PASSWORD=<Variabel Here>
+export SNOWFLAKE_DATABASE=<Variabel Here>
+```
 
 ### [Job List](job_list.json)
 List of select statements (SELECT * FROM MY_TABLE) and the target tables you want to create. Replace the < ... > placeholders. To allow for multiple SQL Servers instances and Snowflake databases simply replace "${PYODBC_SERVER}" and "${SNOWFLAKE_DATABASE}" placeholders with the server names and database names respectively. Also, columns or rows can be excluded via the query, and essentially any SELECT query can be used as a source. 
