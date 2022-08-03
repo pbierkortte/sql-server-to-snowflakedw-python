@@ -38,13 +38,13 @@ python3 --version
 Run the following commands from the terminal:
 ### Create a virtual environment 
 ```bash
-python3 -m venv venv
+python3 -m venv .venv
 ```
 
 
 ### Activate the virtual environment
 ```bash
-source venv/bin/activate
+source .venv/bin/activate
 ```
 
 
