@@ -102,7 +102,7 @@ pip install snowflake-connector-python
 ### Install the Python requirements
 To install the Python libraries, run the following command:
 ```bash
-pip install -r requirements.txt
+pip install --require-virtualenv -r requirements.txt
 ```
 
 
