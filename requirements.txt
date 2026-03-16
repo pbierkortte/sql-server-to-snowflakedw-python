@@ -6,7 +6,7 @@ cryptography==46.0.5
 idna==3.3
 oscrypto==1.2.1
 pycparser==2.21
-pycryptodomex==3.12.0
+pycryptodomex==3.19.1
 PyJWT==2.12.0
 pyodbc==4.0.32
 pyOpenSSL==26.0.0
