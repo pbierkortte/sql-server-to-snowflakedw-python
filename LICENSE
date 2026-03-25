@@ -1,4 +1,25 @@
-Copyright (C) 2019 Pat Bierkortte <https://www.patbierkortte.com/>
+Copyright (C) 2019-2026 Pat Bierkortte (pbierkortte)
+  <https://www.patbierkortte.com/>
+
+  Additional term under section 7 of the GNU General Public License,
+  version 3 ("GPLv3"):
+
+  In accordance with section 7(d) of GPLv3, the use for publicity
+  purposes of names of licensors or authors of the material is limited
+  as follows: you may not use the name "Pat Bierkortte," the username
+  "pbierkortte," the repository name "sql-server-to-snowflakedw-python," names of
+  contributors to this project, or author-identifying metadata derived
+  from the material (including but not limited to skill names, file
+  paths, descriptions, and usage statistics) for publicity purposes,
+  whether through manual or automated means, including programmatic
+  collection, indexing, transmission, display, or publication on
+  third-party websites, directories, dashboards, or analytics
+  platforms, without prior written permission from the copyright
+  holder.
+
+  Any party already engaged in such use must cease the activity and
+  remove all published instances of such information within 30 days
+  of receiving written notice from the copyright holder.
 
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
